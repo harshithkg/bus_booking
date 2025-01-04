@@ -12,33 +12,32 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                script {
-                pipeline.checkoutscm()
-                }
-            }
-        }
-
+		script {
+			pipeline.checkoutscm()
+		}		
+       	}
+     }
         stage('Set up Java 17') {
             steps {
                 script {
-                pipeline.setupjava()
+                	pipeline.setupjava()
                 }
             }
-        }
+	}
 
         stage('Set up Maven') {
             steps {
                 script {
-                pipeline.mavensetup()
-				}
+                	pipeline.mavensetup()
+		}
             }
         }
 
         stage('Build with Maven') {
             steps {
                 script {
-                pipeline.build()
-				}
+			pipeline.build()
+		}
             }
         }
 
@@ -51,17 +50,17 @@ pipeline {
         stage('Run Application') {
             steps {
                 script {
-                pipeline.runApp()
+				pipeline.runApp()
 				}
             }
         }
 
         stage('Validate App is Running') {
-            steps {
-                script {
-                pipeline.validateApp()
+          	steps {
+               	script {
+					pipeline.validateApp()
 				}
-            }
+			}
         }
         stage('wait') {
 			steps {
@@ -87,8 +86,8 @@ pipeline {
 		stage('sending a mail') {
 			steps {
 				script {
-				pipeline.mail()
-			}
+					pipeline.mail()
+				}
 			}
         }
     }
