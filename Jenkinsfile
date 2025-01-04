@@ -66,7 +66,7 @@ pipeline {
         }
         stage('wait') {
         steps {
-            {
+            script {
             pipeline.wait()
         }
         }
