@@ -12,7 +12,6 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                script {
                     script {
                 pipeline.check_out()
                 }
