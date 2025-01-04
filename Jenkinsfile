@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                    script {
+                script {
                 pipeline.checkoutscm()
                 }
             }
@@ -30,7 +30,7 @@ pipeline {
             steps {
                 script {
                 pipeline.mavensetup()
-            }
+				}
             }
         }
 
@@ -38,7 +38,7 @@ pipeline {
             steps {
                 script {
                 pipeline.build()
-            }
+				}
             }
         }
 
@@ -52,7 +52,7 @@ pipeline {
             steps {
                 script {
                 pipeline.runApp()
-            }
+				}
             }
         }
 
@@ -60,36 +60,36 @@ pipeline {
             steps {
                 script {
                 pipeline.validateApp()
-            }
+				}
             }
         }
         stage('wait') {
-        steps {
-            script {
-            pipeline.wait()
-        }
-        }
+			steps {
+				script {
+					pipeline.wait()
+				}
+			}
         }
         stage('stoping') {
-        steps {
-           script {
-            pipeline.stop()
-        }
-        }
+			steps {
+				script {
+					pipeline.stop()
+				}
+			}
         }
          stage('cleaning') {
-        steps {
-            script {
-            pipeline.clean()
-        }
-        }
+			steps {
+				script {
+					pipeline.clean()
+				}
+			}
         }        
-stage('sending a mail') {
-        steps {
-            script {
-            pipeline.mail()
-        }
-        }
+		stage('sending a mail') {
+			steps {
+				script {
+				pipeline.mail()
+			}
+			}
         }
     }
 }
