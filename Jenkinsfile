@@ -86,7 +86,7 @@ pipeline {
 		stage('sending a mail') {
 			steps {
 				script {
-					pipeline1.mail()
+					pipeline1.mailing()
 				}
 			}
         }
