@@ -12,25 +12,25 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                checkoutCode()
+                pipeline.checkout()
             }
         }
 
         stage('Set up Java 17') {
             steps {
-                setupJava()
+                pipeline.setupjava()
             }
         }
 
         stage('Set up Maven') {
             steps {
-                setupMaven()
+                pipeline.mavensetup()
             }
         }
 
         stage('Build with Maven') {
             steps {
-                buildProject()
+                pipeline.build()
             }
         }
 
@@ -42,26 +42,34 @@ pipeline {
 
         stage('Run Application') {
             steps {
-                runApplication()
+                pipeline.runApp()
             }
         }
 
         stage('Validate App is Running') {
             steps {
-                validateApp()
+                pipeline.validateApp()
             }
         }
-
-        stage('Gracefully Stop Spring Boot App') {
-            steps {
-                stopApplication()
-            }
+        stage('wait') {
+        steps {
+            pipeline.wait()
         }
-    }
-
-    post {
-        always {
-            cleanup()
+        }
+        stage('stoping') {
+        steps {
+            pipeline.stop()
+        }
+        }
+         stage('cleaning') {
+        steps {
+            pipeline.clean()
+        }
+        }        
+stage('sending a mail') {
+        steps {
+            pipeline.mail()
+        }
         }
     }
 }
