@@ -73,7 +73,7 @@ pipeline {
         }
         stage('stoping') {
         steps {
-            {
+           script {
             pipeline.stop()
         }
         }
