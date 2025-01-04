@@ -12,13 +12,17 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
+                script {
                 pipeline.checkout()
+                }
             }
         }
 
         stage('Set up Java 17') {
             steps {
+                script {
                 pipeline.setupjava()
+                }
             }
         }
 
