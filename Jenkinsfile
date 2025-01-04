@@ -54,7 +54,7 @@ pipeline {
                 script {
                 pipeline.runApp()
             }
-                )
+            }
         }
 
         stage('Validate App is Running') {
