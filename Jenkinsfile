@@ -93,4 +93,3 @@ stage('sending a mail') {
         }
     }
 }
-}
